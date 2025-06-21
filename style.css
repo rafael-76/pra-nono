@@ -1,0 +1,9 @@
+.love.block.heart {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  background: url("assets/heart.png");
+  background-size: contain;
+  box-sizing: border-box;
+  /* border: 1px solid; */
+}
