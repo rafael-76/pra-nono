@@ -1,21 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Love Heart</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Eu Te Amo Cascata</title>
+<style>
+  body {
+    margin: 0;
+    background: linear-gradient(135deg, #4b006e, #220033);
+    overflow: hidden;
+    height: 100vh;
+    position: relative;
+    font-family: Arial, sans-serif;
+  }
+
+  .frase {
+    position: absolute;
+    top: -20px;
+    color: #ff99aa;
+    font-weight: bold;
+    white-space: nowrap;
+    opacity: 0.8;
+    animation: cair 5s linear forwards;
+  }
+
+  @keyframes cair {
+    0% {
+      top: -20px;
+      opacity: 0;
+    }
+    20% {
+      opacity: 1;
+    }
+    100% {
+      top: 110vh;
+      opacity: 0;
+    }
+  }
+</style>
 </head>
 <body>
-  <div class="love block heart"></div>
 
-  <script>
-    // Exemplo: anima o coração para aparecer em um local aleatório ao clicar
-    document.body.addEventListener("click", function (e) {
-      const heart = document.querySelector(".love.block.heart");
-      heart.style.left = e.pageX + "px";
-      heart.style.top = e.pageY + "px";
-    });
-  </script>
+<script>
+  function criarFrase() {
+    const frase = document.createElement('div');
+    frase.classList.add('frase');
+    frase.textContent = "eu te amo";
+
+    frase.style.left = Math.random() * window.innerWidth + 'px';
+    frase.style.fontSize = (10 + Math.random() * 10) + 'px';
+    frase.style.color = `hsl(${320 + Math.random() * 40}, 80%, 75%)`;
+
+    document.body.appendChild(frase);
+
+    setTimeout(() => {
+      frase.remove();
+    }, 5000);
+  }
+
+  setInterval(criarFrase, 150);
+</script>
+
 </body>
 </html>
